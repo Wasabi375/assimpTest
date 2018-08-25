@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+}
+
+group 'testAssimp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {     url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    jcenter()
+}
+
+dependencies {
+    // The following dependencies will be the ear modules and
+    // will be placed in the ear root
+    // deploy project(':war')
+
+    // The following dependencies will become ear libs and will
+    // be placed in a dir configured via the libDirName property
+    // earlib group: 'log4j', name: 'log4j'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    implementation 'com.github.kotlin-graphics:assimp:v4.0-beta.11'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
