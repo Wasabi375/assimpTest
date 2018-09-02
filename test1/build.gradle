@@ -1,0 +1,28 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+}
+
+group 'testAssimp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    jcenter()
+}
+
+dependencies {
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    implementation 'com.github.kotlin-graphics:assimp:64e30d6c737bde04eb75a270971e713470bc64f7'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
